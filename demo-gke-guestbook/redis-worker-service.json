@@ -1,0 +1,9 @@
+{
+  "apiVersion": "v1beta1",
+  "kind": "Service",
+  "id": "redis-worker",
+  "port": 6379,
+  "containerPort": "redis-server",
+  "labels": { "name": "redis", "role": "worker" },
+  "selector": { "name": "redis", "role": "worker" }
+}
