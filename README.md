@@ -5,3 +5,4 @@
 ## 範例
 
 * [GKE - Google Compute Engine Wordpress範例](./demo-gke-wordpress/README.md)
+* [GKE - Google Compute Engine Guestbook範例](./demo-gke-guestbook/README.md)
