@@ -15,7 +15,7 @@ GKE = Google Container Engine，為Google提供給Docker instance執行的一個
 
 這個guestbook demo的架構，原則上是透過php程式撰寫一個guestbook，並透過redis master / slave的架構做起一個redis的cluster，讓php程式可以存取，而存取的方式會指定write的部分從redis master進入，而read的部分則從redis slave進入，以分散整個系統loading... 整體系統架構如下：
 
-![images/GKE-guestbook-small.png](Guestbook System Architecture)
+![Guestbook System Architecture](images/GKE-guestbook-small.png)
 
 ### Configure files
 
