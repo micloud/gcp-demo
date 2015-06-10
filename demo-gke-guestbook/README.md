@@ -11,6 +11,12 @@ GKE = Google Container Engine，為Google提供給Docker instance執行的一個
 
 建立的部分，依照step*.sh直行即可，試驗完成後，如果要清除資源，可以使用clear.sh清除環境。
 
+## 系統架構
+
+這個guestbook demo的架構，原則上是透過php程式撰寫一個guestbook，並透過redis master / slave的架構做起一個redis的cluster，讓php程式可以存取，而存取的方式會指定write的部分從redis master進入，而read的部分則從redis slave進入，以分散整個系統loading... 整體系統架構如下：
+
+![images/GKE-guestbook-small.png](Guestbook System Architecture)
+
 ### Configure files
 
 * redis-master-pod.json : 建立redis master pod的設定檔 
