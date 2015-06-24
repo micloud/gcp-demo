@@ -1,2 +1,2 @@
 #!/bin/bash
-gcloud alpha container clusters create guestbook
+gcloud beta container clusters create guestbook

@@ -1,9 +1,22 @@
 {
-  "apiVersion": "v1beta1",
-  "kind": "Service",
-  "id": "redis-worker",
-  "port": 6379,
-  "containerPort": "redis-server",
-  "labels": { "name": "redis", "role": "worker" },
-  "selector": { "name": "redis", "role": "worker" }
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"redis-slave",
+      "labels":{
+         "name":"redis-slave"
+      }
+   },
+   "spec":{
+      "ports": [
+        {
+          "port":6379,
+          "targetPort":6379,
+          "protocol":"TCP"
+        }
+      ],
+      "selector":{
+         "name":"redis-slave"
+      }
+   }
 }

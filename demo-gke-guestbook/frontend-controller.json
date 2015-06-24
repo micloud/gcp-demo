@@ -2,30 +2,30 @@
    "kind":"ReplicationController",
    "apiVersion":"v1",
    "metadata":{
-      "name":"redis-slave",
+      "name":"frontend",
       "labels":{
-         "name":"redis-slave"
+         "name":"frontend"
       }
    },
    "spec":{
-      "replicas":2,
+      "replicas":3,
       "selector":{
-         "name":"redis-slave"
+         "name":"frontend"
       },
       "template":{
          "metadata":{
             "labels":{
-               "name":"redis-slave"
+               "name":"frontend"
             }
          },
          "spec":{
             "containers":[
                {
-                  "name":"slave",
-                  "image":"kubernetes/redis-slave:v2",
+                  "name":"php-redis",
+                  "image":"kubernetes/example-guestbook-php-redis:v2",
                   "ports":[
                      {
-                        "containerPort":6379,
+                        "containerPort":80,
                         "protocol":"TCP"
                      }
                   ]
@@ -35,4 +35,3 @@
       }
    }
 }
-
