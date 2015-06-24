@@ -1,2 +1,1 @@
-gcloud alpha container \
-    kubectl create -f wordpress.json
+kubectl run wordpress --image=tutum/wordpress --port=80

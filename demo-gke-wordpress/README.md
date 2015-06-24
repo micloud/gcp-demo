@@ -16,5 +16,4 @@ GKE = Google Container Engine，為Google提供給Docker instance執行的一個
 * step3.sh: 建立wordpress pods
 * step4.sh: 建立firewall rule
 * clear.sh: 將建立完成的環境砍掉
-* wordpress.json: wordpress的GKE設定檔案
 
