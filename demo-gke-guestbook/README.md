@@ -40,8 +40,8 @@ GKE = Google Container Engine，為Google提供給Docker instance執行的一個
 * step5-create-redis-worker-service.sh
 
 建立guestbook application server
-* step6-create-guestbook-controller.sh
-* step7-create-guestbook-service.sh
+* step6-create-frontend-controller.sh
+* step7-create-frontend-service.sh
 
 設定GKE外部防火牆
 * step8-create-gce-firewall.sh
