@@ -70,3 +70,4 @@ bash -x load-folder.sh
 * Fluentd Sample: https://github.com/GoogleCloudPlatform/bigquery-fluentd-docker-sample
 * Fluentd Sample (中文): http://peihsinsu.gitbooks.io/fluentd-in-action/content/google_bigquery_output.html
 * Node.js Sample: https://github.com/googlecloudplatform/gcloud-node#google-bigquery
+* Using Apps Script: https://developers.google.com/apps-script/advanced/bigquery
