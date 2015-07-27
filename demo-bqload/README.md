@@ -16,7 +16,7 @@
 建立Dataset  
 
 ```
-  bq mk $DATASET
+bq mk $DATASET
 ``` 
 
 建立Table
@@ -71,3 +71,7 @@ bash -x load-folder.sh
 * Fluentd Sample (中文): http://peihsinsu.gitbooks.io/fluentd-in-action/content/google_bigquery_output.html
 * Node.js Sample: https://github.com/googlecloudplatform/gcloud-node#google-bigquery
 * Using Apps Script: https://developers.google.com/apps-script/advanced/bigquery
+* Using LinQ (.NET):  https://github.com/neuecc/LINQ-to-BigQuery
+* MS .NET extension: https://visualstudiogallery.msdn.microsoft.com/18156096-e8f9-4666-9697-2cb7b3b0da9a
+* .NET實作範例: 
+http://bitvectors.blogspot.tw/2014/05/front-end-google-bigquery-with-aspnet.html
