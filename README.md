@@ -10,3 +10,7 @@
 ## 範例 - BigQyery
 
 * [BQ - Load Data from CSV](./demo-bqload/README.md)
+
+## 範例 - Cloud Monitor
+
+* [Cloud Monitor - Show Project Sent Bytes Count](./demo-cloudmonitor/README.md)

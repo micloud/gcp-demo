@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <button id="authorize-button" style="visibility: hidden">Authorize</button>
+    <script type="text/javascript">
+      var authParams = {
+        'response_type' : 'token', // Retrieves an access token only
+        'client_id' : 'your-client-id.apps.googleusercontent.com', // TODO: insert your Client ID from Developers Console
+        'immediate' : false, // For the demo, force the auth window every time
+        'scope' : ['https://www.googleapis.com/auth/monitoring']  // Array of scopes
+      };
+
+      function handleClientLoad() {
+        window.setTimeout(checkAuth,1);
+      }
+
+      function checkAuth() {
+        gapi.auth.authorize(authParams, handleAuthResult);
+      }
+
+
+      function handleAuthResult(authResult) {
+        if (authResult && authResult['access_token']) {
+          gapi.auth.setToken(authResult);
+        }
+
+        var authorizeButton = document.getElementById('authorize-button');
+
+        if (authResult && !authResult.error) {
+          authorizeButton.style.visibility = 'hidden';
+          makeApiCall();
+        } else {
+          authorizeButton.style.visibility = '';
+          authorizeButton.onclick = handleAuthClick;
+        }
+      }
+
+
+      function handleAuthClick(event) {
+        gapi.auth.authorize(authParams, handleAuthResult)
+        return false;
+      }
+
+
+      // Load the API and make an API call.  Display the results on the screen.
+      function makeApiCall() {
+
+        gapi.client.load('cloudmonitoring', 'v2beta2', function() {
+          getTimeSeriesDataPoints();
+        })
+      }
+
+      function getTimeSeriesDataPoints() {
+        var request = gapi.client.cloudmonitoring.timeseries.list({
+          'project' : 'your-project-id' //TODO: insert your project id
+          ,'metric' : 'compute.googleapis.com/instance/network/sent_bytes_count'
+          ,'youngest': '2015-07-01T00:00:00.000Z' //TODO: insert your time interval, format like: new Date().toJSON()
+          , 'oldest' : '2015-06-01T00:00:00.000Z'
+        });
+
+        // Execute the request and provide a callback function
+        request.execute(function(resp) {
+          // Insert the response into a div for viewing.
+          document.getElementById('content').innerText =
+            JSON.stringify(resp);
+        });
+      }
+
+
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad&ts=1"></script>
+    <div id="content"></div>
+    <p>Retrieves your profile name using the Google Plus API.</p>
+  </body>
+</html>
